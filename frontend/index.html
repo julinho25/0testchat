@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LogiFlow | Operação Logística</title>
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.19.3/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <span class="logo">LF</span>
+        <div>
+          <strong>LogiFlow</strong>
+          <small>Operação logística</small>
+        </div>
+      </div>
+      <nav id="menu"></nav>
+      <div class="sidebar-footer">
+        <button class="btn ghost" id="logoutBtn">Sair</button>
+      </div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <button class="btn icon" id="toggleSidebar" aria-label="Alternar menu">☰</button>
+        <div class="topbar-title" id="pageTitle">Dashboard</div>
+        <div class="user-chip" id="userChip"></div>
+      </header>
+      <section id="view" class="view"></section>
+    </main>
+  </div>
+
+  <div id="auth" class="auth-screen hidden">
+    <div class="auth-card">
+      <h1>LogiFlow</h1>
+      <p>Entre para acessar a operação.</p>
+      <form id="loginForm">
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Senha
+          <input type="password" name="password" required />
+        </label>
+        <button class="btn primary" type="submit">Entrar</button>
+        <div class="form-error" id="loginError"></div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+  <div id="loader" class="loader hidden">Carregando...</div>
+
+  <script type="module" src="/assets/js/app.js"></script>
+</body>
+</html>
