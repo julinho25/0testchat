@@ -66,3 +66,50 @@ Usuário padrão:
 ```bash
 curl http://localhost:8000/
 ```
+
+## Script utilitário: auto clique em números
+
+Foi adicionado um script utilitário em `frontend/assets/js/autoClickNumbers.js` para automatizar cliques em números renderizados em uma `div`.
+
+Uso básico no console do navegador:
+
+```js
+const stop = startAutoClickNumbers({
+  containerSelector: '.sua-div-com-numeros',
+  numberSelector: '.item-numero', // opcional
+  numbersToClick: [12, 28, 35],
+  intervalMs: 450,
+  debug: true,
+});
+
+// quando quiser parar
+stop();
+```
+
+Dica: descubra os seletores corretos com o inspetor do navegador.
+
+## Bot em Python: auto clique em números
+
+Também foi adicionado um bot em Python: `tools/auto_click_bot.py`.
+
+### Instalação
+
+```bash
+pip install selenium webdriver-manager
+```
+
+### Execução
+
+```bash
+python tools/auto_click_bot.py \
+  --url "https://bravo.bet.br/cassino-ao-vivo/roleta-brasileira/play" \
+  --container ".racetrack-table" \
+  --item ".table-cell" \
+  --numbers 12 28 35 \
+  --interval 0.45 \
+  --debug
+```
+
+Observações:
+- Ajuste `--container` e `--item` conforme os seletores reais da página.
+- Interrompa com `Ctrl+C`.
